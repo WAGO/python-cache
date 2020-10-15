@@ -1,0 +1,8 @@
+#!/bin/bash
+curl -ksSL https://10.1.104.223/certs-generic-prod/wago-intercept-certificates/cert_SSL-Intercept-2020-PEM.crt -o /usr/local/share/ca-certificates/cert_SSL-Intercept.crt
+update-ca-certificates
+
+if [ -f "/usr/local/share/ca-certificates/cert_SSL-Intercept.crt" ]; then
+    pip config set --global global.cert /usr/local/share/ca-certificates/cert_SSL-Intercept.crt
+    git config --global http.sslCAInfo /usr/local/share/ca-certificates/cert_SSL-Intercept.crt
+fi
