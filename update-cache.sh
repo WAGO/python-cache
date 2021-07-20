@@ -1,3 +1,3 @@
 #!/bin/bash
-docker run --rm -t --name cache-updater -v $PWD/.cache:/root/.cache wagoautomation/wago-python:3.8-armv7 pip install $@
+docker run --rm -t --name cache-updater -v $PWD/.cache:/root/.cache wagoautomation/python-cache-updater pip install --upgrade pip $@
 sudo chmod -R 777 .cache/
