@@ -22,6 +22,8 @@ RUN apt-get update \
     pkg-config \
     libhdf5-dev \
     && apt-get clean
+RUN chmod +x /docker-entrypoint.sh
+RUN chmod +x /install-certificates.sh
 
 FROM scratch as final
 LABEL maintainer = Wago <dirk.meihoefer@wago.com>
